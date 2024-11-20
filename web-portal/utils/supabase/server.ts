@@ -3,6 +3,10 @@ import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
 export const createClient = () => {
+  // Menambahkan log untuk memastikan variabel lingkungan tersedia
+  console.log("SUPABASE URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
+  console.log("SUPABASE ANON KEY:", process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+
   const cookieStore = cookies();
 
   return createServerClient<Database>(
